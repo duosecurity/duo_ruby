@@ -22,6 +22,7 @@ module Duo
 	# Sign a Duo request with the ikey, skey, akey, and username
 	def sign_request(ikey, skey, akey, username)
 		return Duo::ERR_USER if not username or username.to_s.length == 0
+		return Duo::ERR_USER if username.include? '|'
 		return Duo::ERR_IKEY if not ikey or ikey.to_s.length != Duo::IKEY_LEN
 		return Duo::ERR_SKEY if not skey or skey.to_s.length != Duo::SKEY_LEN
 		return Duo::ERR_AKEY if not akey or akey.to_s.length < Duo::AKEY_LEN
@@ -37,9 +38,9 @@ module Duo
 	# Verify a response from Duo with the skey and akey.
 	def verify_response(ikey, skey, akey, sig_response)
 		begin
-			auth_sig, app_sig = sig_response.to_s.split(':')	
-			auth_user = parse_vals(skey, auth_sig, Duo::AUTH_PREFIX)
-			app_user = parse_vals(akey, app_sig, Duo::APP_PREFIX)
+			auth_sig, app_sig = sig_response.to_s.split(':')
+			auth_user = parse_vals(skey, auth_sig, Duo::AUTH_PREFIX, ikey)
+			app_user = parse_vals(akey, app_sig, Duo::APP_PREFIX, ikey)
 		rescue
 			return nil
 		end
@@ -67,17 +68,24 @@ module Duo
 		return [cookie, sig].join('|')
 	end
 
-	def parse_vals(key, val, prefix)
+	def parse_vals(key, val, prefix, ikey)
 		ts = Time.now.to_i
-		u_prefix, u_b64, u_sig = val.to_s.split('|')
-		
+
+		parts = val.to_s.split('|')
+		return nil if parts.length !=3
+		u_prefix, u_b64, u_sig = parts
+
 		sig = hmac_sha1(key, [u_prefix, u_b64].join('|'))
 
 		return nil if hmac_sha1(key, sig) != hmac_sha1(key, u_sig)
 
 		return nil if u_prefix != prefix
 
-		user, ikey, exp = Base64.decode64(u_b64).to_s.split('|')
+		cookie_parts = Base64.decode64(u_b64).to_s.split('|')
+		return nil if cookie_parts.length != 3
+		user, u_ikey, exp = cookie_parts
+
+		return nil if u_ikey != ikey
 
 		return nil if ts >= exp.to_i
 
