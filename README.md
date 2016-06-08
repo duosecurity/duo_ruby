@@ -7,8 +7,8 @@ This package allows a web developer to quickly add Duo's interactive, self-servi
 What's here:
 
 * `js` - Duo Javascript library, to be hosted by your webserver.
-* `duo_web.rb` - Duo Ruby SDK to be integrated with your web application
-* `test.rb` -  Unit tests for our SDK
+* `lib/duo_web.rb` - Duo Ruby SDK to be integrated with your web application
+* `test/test_duo_web.rb` -  Unit tests for our SDK
 
 # Installing
 
@@ -19,7 +19,7 @@ $ git clone https://github.com/duosecurity/duo_ruby.git
 # Using
 
 ```
-$ irb -r ./duo_web.rb
+$ irb -r ./lib/duo_web.rb
 irb(main):001:0> Duo.sign_request(ikey, skey, akey, username)
 => "TX|...TX_SIGNATURE...==|...TX_HASH...:APP|...APP_SIGNATURE...==|...APP_HASH..."
 ```
@@ -27,23 +27,23 @@ irb(main):001:0> Duo.sign_request(ikey, skey, akey, username)
 # Testing
 
 ```
-$ ruby test.rb
-Loaded suite test
+$ rake
+Loaded suite /usr/lib/ruby/vendor_ruby/rake/rake_test_loader
 Started
 ..
 
-Finished in 0.001666831 seconds.
+Finished in 0.001006152 seconds.
 ---------------------------------------------------------------------------------------
 2 tests, 13 assertions, 0 failures, 0 errors, 0 pendings, 0 omissions, 0 notifications
 100% passed
 ---------------------------------------------------------------------------------------
-1199.88 tests/s, 7799.23 assertions/s
+1987.77 tests/s, 12920.51 assertions/s
 ```
 
 # Linting
 
 ```
-$ rubocop duo_web.rb
+$ rubocop
 ```
 
 # Support

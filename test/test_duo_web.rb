@@ -1,5 +1,5 @@
 require 'test/unit'
-require_relative 'duo_web'
+require 'duo_web'
 
 IKEY = 'DIXXXXXXXXXXXXXXXXXX'.freeze
 WRONG_IKEY = 'DIXXXXXXXXXXXXXXXXXY'.freeze
