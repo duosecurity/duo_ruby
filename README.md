@@ -12,8 +12,23 @@ What's here:
 
 # Installing
 
+Development:
+
 ```
 $ git clone https://github.com/duosecurity/duo_ruby.git
+$ cd duo_ruby
+```
+
+System:
+
+```
+$ gem install duo_web
+```
+
+Or add the following to your project:
+
+```
+gem 'duo_web', '~> 1.0'
 ```
 
 # Using
