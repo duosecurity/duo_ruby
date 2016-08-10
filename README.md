@@ -40,13 +40,16 @@ irb(main):001:0> Duo.sign_request(ikey, skey, akey, username)
 ```
 
 # Demo
-**Tested on Ubuntu 14.04**
-1. Setup WebSDK integration - https://duo.com/docs/duoweb#first-steps
-2. Install thin webserver - https://github.com/macournoyer/thin
+
+* [Setup WebSDK integration](https://duo.com/docs/duoweb)
+* [Install Thin webserver](https://github.com/macournoyer/thin)
+
 ```
 $ gem install thin
 ```
-3. Configure `server.rb` with hostname, ikey, skey, akey, and username from your WebSDK integration
+
+* Configure `server.rb` with `host`, `ikey`, `skey`, `akey`, and `username` from your WebSDK integration
+
 ```
 class DuoLoginAdapter
   def initialize
@@ -57,9 +60,11 @@ class DuoLoginAdapter
     @username = 'your_duo_username'
     ...
 ```
-4. start the demo
+
+* Start the demo
+
 ```
-$ ruby /duo_ruby/server.rb
+$ ruby server.rb
 ```
 
 # Testing
