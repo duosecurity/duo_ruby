@@ -1,7 +1,6 @@
 require 'openssl'
 require 'base64'
-require 'rails'
-require 'duo-rails' if defined? Rails
+require_relative 'duo-rails' if defined? Rails
 
 ##
 # A Ruby implementation of the Duo WebSDK
