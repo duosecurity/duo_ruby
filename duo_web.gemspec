@@ -13,6 +13,6 @@ Gem::Specification.new do |s|
     'js/Duo-Web-v2.min.js'
   ]
   s.add_development_dependency 'rake', '~> 0'
-  s.add_development_dependency 'rubocop', '~> 0'
+  s.add_development_dependency 'rubocop', '~> 0.49.0'
   s.add_development_dependency 'test-unit'
 end
