@@ -1,7 +1,10 @@
 # Overview
 
 [![Build Status](https://travis-ci.org/duosecurity/duo_ruby.svg?branch=master)](https://travis-ci.org/duosecurity/duo_ruby)
-
+[![Issues](https://img.shields.io/github/issues/duosecurity/duo_ruby)](https://github.com/duosecurity/duo_ruby/issues)
+[![Forks](https://img.shields.io/github/forks/duosecurity/duo_ruby)](https://github.com/duosecurity/duo_ruby/network/members)
+[![Stars](https://img.shields.io/github/stars/duosecurity/duo_ruby)](https://github.com/duosecurity/duo_ruby/stargazers)
+[![License](https://img.shields.io/badge/License-View%20License-orange)](https://github.com/duosecurity/duo_ruby/blob/master/LICENSE)
 **duo_ruby** - Duo two-factor authentication for Ruby web applications: https://duo.com/docs/duoweb
 
 This package allows a web developer to quickly add Duo's interactive, self-service, two-factor authentication to any web login form - without setting up secondary user accounts, directory synchronization, servers, or hardware.
