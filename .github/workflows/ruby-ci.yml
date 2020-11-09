@@ -1,0 +1,21 @@
+name: Ruby CI
+on: [push, pull_request]
+
+jobs:
+  ruby-ci:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        ruby-version: [2.6, 2.7]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Ruby ${{ matrix.ruby-version }}
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby-version }}
+      - name: Install dependencies
+        run: bundle install
+      - name: Test
+        run: rake
