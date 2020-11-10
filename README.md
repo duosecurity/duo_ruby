@@ -1,6 +1,6 @@
 # Overview
 
-[![Build Status](https://travis-ci.org/duosecurity/duo_ruby.svg?branch=master)](https://travis-ci.org/duosecurity/duo_ruby)
+[![Build Status](https://github.com/duosecurity/duo_ruby/workflows/Ruby%20CI/badge.svg)](https://github.com/duosecurity/duo_ruby/actions)
 [![Issues](https://img.shields.io/github/issues/duosecurity/duo_ruby)](https://github.com/duosecurity/duo_ruby/issues)
 [![Forks](https://img.shields.io/github/forks/duosecurity/duo_ruby)](https://github.com/duosecurity/duo_ruby/network/members)
 [![Stars](https://img.shields.io/github/stars/duosecurity/duo_ruby)](https://github.com/duosecurity/duo_ruby/stargazers)
