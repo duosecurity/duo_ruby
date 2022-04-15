@@ -1,5 +1,5 @@
 name: Ruby CI
-on: 
+on:
   push:
     branches:
       - master
@@ -21,6 +21,8 @@ jobs:
         uses: actions/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby-version }}
+      - name: Install bundle
+        run: gem install bundler
       - name: Install dependencies
         run: bundle install
       - name: Test
