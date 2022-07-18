@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    duo_web (1.0.2)
+    duo_web (1.0.3)
 
 GEM
   remote: https://rubygems.org/

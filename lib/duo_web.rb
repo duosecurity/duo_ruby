@@ -104,4 +104,9 @@ module Duo
   end
 
   extend self
+
+  extend Gem::Deprecate
+  deprecate :sign_request, :none, 2022, 7
+  deprecate :verify_response, :none, 2022, 7
+
 end
